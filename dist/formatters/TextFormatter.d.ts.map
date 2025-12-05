@@ -1,0 +1,1 @@
+{"version":3,"file":"TextFormatter.d.ts","sourceRoot":"","sources":["../../src/formatters/TextFormatter.ts"],"names":[],"mappings":"AAAA;;GAEG;AAEH,OAAO,EAAE,gBAAgB,EAAE,MAAM,UAAU,CAAC;AAC5C,OAAO,EAAE,SAAS,EAAE,MAAM,aAAa,CAAC;AAExC,qBAAa,aAAc,YAAW,SAAS;IAC7C,MAAM,CAAC,MAAM,EAAE,gBAAgB,GAAG,MAAM;CA+CzC"}

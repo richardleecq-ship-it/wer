@@ -1,0 +1,1 @@
+{"version":3,"file":"CSVFormatter.d.ts","sourceRoot":"","sources":["../../src/formatters/CSVFormatter.ts"],"names":[],"mappings":"AAAA;;GAEG;AAEH,OAAO,EAAE,gBAAgB,EAAE,MAAM,UAAU,CAAC;AAC5C,OAAO,EAAE,SAAS,EAAE,MAAM,aAAa,CAAC;AAExC,qBAAa,YAAa,YAAW,SAAS;IAC5C,MAAM,CAAC,MAAM,EAAE,gBAAgB,GAAG,MAAM;IAuBxC,OAAO,CAAC,SAAS;CAOlB"}
