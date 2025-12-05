@@ -1,0 +1,12 @@
+# Sample URLs for testing web-link-extractor
+# Lines starting with # are comments and will be ignored
+
+# Example domains
+https://example.com
+https://example.org
+https://example.net
+
+# IANA reserved domains page
+https://www.iana.org/domains/reserved
+
+# Add your own URLs below:
