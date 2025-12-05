@@ -1,0 +1,72 @@
+{
+  "name": "web-link-extractor",
+  "version": "1.0.0",
+  "description": "A powerful command-line tool for extracting links from web pages with intelligent description generation. Handles JavaScript-rendered content, provides advanced filtering, and supports multiple output formats.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "link-extractor": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "dev": "tsx src/cli.ts",
+    "server": "tsx src/coze-server.ts",
+    "server:prod": "node dist/coze-server.js",
+    "clean": "rm -rf dist",
+    "rebuild": "npm run clean && npm run build",
+    "prepublishOnly": "npm run build",
+    "example:basic": "node examples/basic-usage.js",
+    "example:filtering": "node examples/filtering-links.js",
+    "example:batch": "node examples/batch-processing.js",
+    "example:formats": "node examples/output-formats.js",
+    "example:advanced": "node examples/advanced-options.js"
+  },
+  "keywords": [
+    "web-scraping",
+    "link-extraction",
+    "playwright",
+    "cli",
+    "web-crawler",
+    "link-parser",
+    "seo",
+    "web-analysis",
+    "typescript",
+    "batch-processing",
+    "link-checker",
+    "url-extractor"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/web-link-extractor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/web-link-extractor/issues"
+  },
+  "homepage": "https://github.com/yourusername/web-link-extractor#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    ".linkextractorrc.json"
+  ],
+  "dependencies": {
+    "commander": "^11.1.0",
+    "express": "^4.22.1",
+    "playwright": "^1.40.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.25",
+    "@types/node": "^20.10.0",
+    "fast-check": "^3.15.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  }
+}

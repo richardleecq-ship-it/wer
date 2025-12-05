@@ -1,0 +1,51 @@
+{
+  "name": "Web Link Extractor",
+  "description": "Extract all links from any web page with descriptions and metadata",
+  "version": "1.0.0",
+  "api": {
+    "type": "openapi",
+    "url": "/openapi.json"
+  },
+  "endpoints": [
+    {
+      "path": "/extract",
+      "method": "POST",
+      "description": "Extract links from a web page",
+      "parameters": {
+        "url": {
+          "type": "string",
+          "required": true,
+          "description": "The URL of the web page to extract links from"
+        }
+      },
+      "response": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the extraction was successful"
+        },
+        "data": {
+          "type": "array",
+          "description": "Array of extracted links",
+          "items": {
+            "url": "string",
+            "description": "string",
+            "anchorText": "string",
+            "title": "string"
+          }
+        },
+        "sourceUrl": {
+          "type": "string",
+          "description": "The source URL that was processed"
+        },
+        "totalLinks": {
+          "type": "number",
+          "description": "Total number of links extracted"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message if extraction failed"
+        }
+      }
+    }
+  ]
+}

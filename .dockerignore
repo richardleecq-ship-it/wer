@@ -1,0 +1,33 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.env
+.DS_Store
+
+# Documentation (keep only essential)
+*.md
+!README.md
+!README_COZE.md
+
+# Test files
+test-*
+examples
+docs
+
+# IDE and config
+.kiro
+.vscode
+.idea
+
+# Archives
+*.7z
+*.zip
+*.tar.gz
+
+# Scripts (not needed in container)
+*.bat
+*.sh
+
+# Build output (will be rebuilt in container)
+dist

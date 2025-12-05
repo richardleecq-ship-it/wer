@@ -1,0 +1,199 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Web Link Extractor API",
+    "description": "Extract links from web pages with intelligent description generation",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/extract": {
+      "post": {
+        "summary": "Extract links from a web page",
+        "description": "Extracts all links from the specified URL and returns them with descriptions, anchor text, and titles",
+        "operationId": "extractLinks",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["url"],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The URL of the web page to extract links from",
+                    "example": "https://example.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful extraction",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtractionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid URL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Extract links from a web page (GET)",
+        "description": "Extracts all links from the specified URL using query parameter",
+        "operationId": "extractLinksGet",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "The URL of the web page to extract links from",
+            "example": "https://example.com"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful extraction",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtractionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health check",
+        "description": "Check if the service is running",
+        "operationId": "healthCheck",
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "ok"
+                    },
+                    "service": {
+                      "type": "string",
+                      "example": "web-link-extractor"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ExtractionResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Whether the extraction was successful"
+          },
+          "data": {
+            "type": "array",
+            "description": "Array of extracted links",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "sourceUrl": {
+            "type": "string",
+            "description": "The source URL that was processed"
+          },
+          "totalLinks": {
+            "type": "number",
+            "description": "Total number of links extracted"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message if extraction failed"
+          }
+        }
+      },
+      "Link": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL of the link"
+          },
+          "description": {
+            "type": "string",
+            "description": "Generated description of the link"
+          },
+          "anchorText": {
+            "type": "string",
+            "description": "The anchor text of the link"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title attribute of the link (if present)"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  }
+}
